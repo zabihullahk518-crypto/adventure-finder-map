@@ -12,6 +12,7 @@ const buttonVariants = cva(
         default: "bg-primary text-primary-foreground shadow hover:bg-primary/90",
         hero: "bg-accent text-accent-foreground shadow-lg hover:bg-accent/90",
         talabat: "bg-talabat text-talabat-foreground shadow-lg hover:bg-talabat/90",
+        keeta: "bg-keeta text-keeta-foreground shadow-lg hover:bg-keeta/90",
         heroOutline: "border border-primary-foreground/60 bg-transparent text-primary-foreground hover:bg-primary-foreground/10",
         destructive: "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90",
         outline:
