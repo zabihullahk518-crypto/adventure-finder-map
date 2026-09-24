@@ -1,6 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Menu, Phone, X } from "lucide-react";
-import { useState } from "react";
+import { Menu, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const links = [
@@ -23,7 +22,6 @@ export function Brand({ light = false }: { light?: boolean }) {
 }
 
 export function SiteHeader() {
-  const [open, setOpen] = useState(false);
   return <header className="sticky top-0 z-50 border-b border-border/70 bg-background/95 backdrop-blur">
     <div className="page-shell grid h-20 grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-5 sm:px-8 lg:px-12">
       <Brand />
@@ -31,11 +29,13 @@ export function SiteHeader() {
         {links.map((item) => <Link key={item.to} to={item.to} activeOptions={{ exact: item.to === "/" }} className="text-sm font-semibold text-muted-foreground transition-colors hover:text-primary" activeProps={{ className: "text-primary" }}>{item.label}</Link>)}
         <Button asChild><a href={WHATSAPP_LINK} target="_blank" rel="noreferrer">Order Now</a></Button>
       </nav>
-      <Button variant="ghost" size="icon" className="lg:hidden" aria-label={open ? "Close menu" : "Open menu"} onClick={() => setOpen(!open)}>{open ? <X /> : <Menu />}</Button>
+      <details className="group relative lg:hidden">
+        <summary className="flex size-10 cursor-pointer list-none items-center justify-center rounded-md hover:bg-muted" aria-label="Open menu"><Menu className="size-5" /></summary>
+        <nav className="absolute right-0 top-12 w-56 rounded-md border border-border bg-background p-3 shadow-xl" aria-label="Mobile navigation">
+          <div className="flex flex-col gap-1">{links.map((item) => <Link key={item.to} to={item.to} className="rounded-md px-3 py-3 font-semibold hover:bg-muted">{item.label}</Link>)}<Button asChild className="mt-3"><a href={WHATSAPP_LINK} target="_blank" rel="noreferrer">Order Now</a></Button></div>
+        </nav>
+      </details>
     </div>
-    {open && <nav className="border-t border-border bg-background px-5 py-5 lg:hidden" aria-label="Mobile navigation">
-      <div className="flex flex-col gap-1">{links.map((item) => <Link key={item.to} to={item.to} onClick={() => setOpen(false)} className="rounded-md px-3 py-3 font-semibold hover:bg-muted">{item.label}</Link>)}<Button asChild className="mt-3"><a href={WHATSAPP_LINK} target="_blank" rel="noreferrer">Order Now</a></Button></div>
-    </nav>}
   </header>;
 }
 
