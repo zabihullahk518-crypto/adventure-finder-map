@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Menu, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import logo from "@/assets/asali-logo.png.asset.json";
 
 const links = [
   { to: "/" as const, label: "Home" },
@@ -14,11 +15,24 @@ export const PHONE_LINK = "tel:+97333447008";
 export const WHATSAPP_LINK = "https://wa.me/97333447008";
 export const MAP_LINK = "https://maps.google.com/?cid=6606123791950802938";
 export const TALABAT_LINK = "https://www.talabat.com/bahrain/restaurant/769121/alasali-turkish-pastrie-and-shawarma?aid=1086";
+export const KEETA_LINK = "https://fooddelivery-eu.mykeeta.com/mpweb/shop_golden?useShopPoi=1&channel=googlemap&shopId=100718330&cityId=101200007&lch=default~*googlemap~*BH~*100718330&locale=ar&region=BH&utm_source=organic&utm_medium=others&utm_campaign=googlemap";
+
+export function DeliveryButtons({ size = "default" as const, className = "" }: { size?: "default" | "lg" | "sm"; className?: string }) {
+  return (
+    <div className={`flex flex-wrap gap-3 ${className}`}>
+      <Button asChild variant="talabat" size={size}><a href={TALABAT_LINK} target="_blank" rel="noreferrer">Order on Talabat</a></Button>
+      <Button asChild variant="keeta" size={size}><a href={KEETA_LINK} target="_blank" rel="noreferrer">Order on Keeta</a></Button>
+    </div>
+  );
+}
 
 export function Brand({ light = false }: { light?: boolean }) {
-  return <Link to="/" className={`flex flex-col leading-none ${light ? "text-primary-foreground" : "text-primary"}`}>
-    <span className="font-display text-2xl font-bold uppercase tracking-[0.12em]">Asali</span>
-    <span className="mt-1 text-[9px] font-bold uppercase tracking-[0.28em]">Turkish Pastries</span>
+  return <Link to="/" className={`flex items-center gap-3 ${light ? "text-primary-foreground" : "text-primary"}`}>
+    <img src={logo.url} alt="Alasali Turkish Pastries logo" className="size-12 rounded-md object-cover shadow-sm" />
+    <span className="flex flex-col leading-none">
+      <span className="font-display text-2xl font-bold uppercase tracking-[0.12em]">Asali</span>
+      <span className="mt-1 text-[9px] font-bold uppercase tracking-[0.28em]">Turkish Pastries</span>
+    </span>
   </Link>;
 }
 
@@ -28,12 +42,14 @@ export function SiteHeader() {
       <Brand />
       <nav className="hidden items-center gap-7 lg:flex" aria-label="Main navigation">
         {links.map((item) => <Link key={item.to} to={item.to} activeOptions={{ exact: item.to === "/" }} className="text-sm font-semibold text-muted-foreground transition-colors hover:text-primary" activeProps={{ className: "text-primary" }}>{item.label}</Link>)}
-        <Button asChild><a href={WHATSAPP_LINK} target="_blank" rel="noreferrer">Order Now</a></Button>
+        <Button asChild><a href={TALABAT_LINK} target="_blank" rel="noreferrer">Order on Talabat</a></Button>
+        <Button asChild variant="keeta"><a href={KEETA_LINK} target="_blank" rel="noreferrer">Order on Keeta</a></Button>
       </nav>
       <details className="group relative lg:hidden">
         <summary className="flex size-10 cursor-pointer list-none items-center justify-center rounded-md hover:bg-muted" aria-label="Open menu"><Menu className="size-5" /></summary>
         <nav className="absolute right-0 top-12 w-56 rounded-md border border-border bg-background p-3 shadow-xl" aria-label="Mobile navigation">
-          <div className="flex flex-col gap-1">{links.map((item) => <Link key={item.to} to={item.to} className="rounded-md px-3 py-3 font-semibold hover:bg-muted">{item.label}</Link>)}<Button asChild className="mt-3"><a href={WHATSAPP_LINK} target="_blank" rel="noreferrer">Order Now</a></Button></div>
+          <div className="flex flex-col gap-1">{links.map((item) => <Link key={item.to} to={item.to} className="rounded-md px-3 py-3 font-semibold hover:bg-muted">{item.label}</Link>)}</div>
+          <DeliveryButtons className="mt-3 [&>a]:w-full" />
         </nav>
       </details>
     </div>
