@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ArrowRight, Clock, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { SectionTitle, MAP_LINK, WHATSAPP_LINK } from "@/components/site";
+import { SectionTitle, MAP_LINK, TALABAT_LINK, WHATSAPP_LINK } from "@/components/site";
 import { menuItems, photos } from "@/lib/asali";
 
 export const Route = createFileRoute("/")({

@@ -65,6 +65,8 @@
   --color-brand-warm: var(--brand-warm);
   --color-gold: var(--gold);
   --color-cream: var(--cream);
+  --color-talabat: var(--talabat);
+  --color-talabat-foreground: var(--talabat-foreground);
 }
 
 :root {
@@ -92,6 +94,8 @@
   --brand-warm: oklch(0.47 0.12 35);
   --gold: oklch(0.74 0.13 72);
   --cream: oklch(0.95 0.03 80);
+  --talabat: oklch(0.65 0.21 41);
+  --talabat-foreground: oklch(0.99 0.008 85);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
