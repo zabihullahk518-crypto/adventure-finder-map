@@ -1,0 +1,6 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { PageIntro } from "@/components/site";
+import { photos } from "@/lib/asali";
+export const Route = createFileRoute("/gallery")({ head: () => ({ meta: [{ title: "Gallery — Asali Pastries" }, { name: "description", content: "See real food and storefront photography from Asali Pastries in Riffa." }, { property: "og:title", content: "Asali Pastries Gallery" }, { property: "og:description", content: "A look at Asali Pastries in Riffa." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }] }), component: Gallery });
+const gallery=[photos.platter,photos.pizzas,photos.dolma,photos.storefront,photos.pizza,photos.wraps,photos.meal,photos.cheesePastry];
+function Gallery(){return <><PageIntro eyebrow="Gallery" title="Made fresh. Served generously." copy="A real look at the food and storefront of Asali Pastries."/><section className="section-pad"><div className="page-shell columns-2 gap-4 md:columns-3">{gallery.map((src,i)=><img key={src} src={src} alt={`Asali Pastries food and shop view ${i+1}`} className="mb-4 w-full break-inside-avoid rounded-lg object-cover shadow-sm"/>)}</div></section></>}
