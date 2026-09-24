@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ArrowRight, Clock, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { SectionTitle, MAP_LINK, WHATSAPP_LINK } from "@/components/site";
+import { SectionTitle, MAP_LINK, TALABAT_LINK, WHATSAPP_LINK } from "@/components/site";
 import { menuItems, photos } from "@/lib/asali";
 
 export const Route = createFileRoute("/")({
@@ -16,7 +16,7 @@ function Index() {
         <img src={photos.pizzas} alt="Fresh pizzas prepared at Asali Pastries" className="absolute inset-0 h-full w-full object-cover opacity-55" />
         <div className="absolute inset-0 bg-gradient-to-r from-brand-deep via-brand-deep/70 to-transparent" />
         <div className="page-shell relative flex min-h-[calc(100svh-5rem)] items-end px-5 pb-16 pt-24 sm:px-8 sm:pb-20 lg:px-12">
-          <div className="max-w-3xl text-primary-foreground"><p className="mb-5 text-xs font-bold uppercase tracking-[0.25em] text-gold">Turkish pastries · Riffa, Bahrain</p><h1 className="text-6xl font-semibold uppercase leading-[0.86] sm:text-8xl lg:text-9xl">Asali<br />Pastries</h1><p className="mt-7 max-w-lg text-lg leading-8 text-primary-foreground/80">Fresh from the oven, generous by tradition. Pastries, pizza and shawarma made for sharing.</p><div className="mt-9 flex flex-wrap gap-3"><Button asChild variant="hero" size="lg"><a href="/menu">View Our Menu <ArrowRight /></a></Button><Button asChild variant="heroOutline" size="lg"><a href={WHATSAPP_LINK} target="_blank" rel="noreferrer">Order Now</a></Button></div></div>
+          <div className="max-w-3xl text-primary-foreground"><p className="mb-5 text-xs font-bold uppercase tracking-[0.25em] text-gold">Turkish pastries · Riffa, Bahrain</p><h1 className="text-6xl font-semibold uppercase leading-[0.86] sm:text-8xl lg:text-9xl">Asali<br />Pastries</h1><p className="mt-7 max-w-lg text-lg leading-8 text-primary-foreground/80">Fresh from the oven, generous by tradition. Pastries, pizza and shawarma made for sharing.</p><div className="mt-9 flex flex-wrap gap-3"><Button asChild variant="hero" size="lg"><a href="/menu">View Our Menu <ArrowRight /></a></Button><Button asChild variant="talabat" size="lg"><a href={TALABAT_LINK} target="_blank" rel="noreferrer">Order on Talabat</a></Button><Button asChild variant="heroOutline" size="lg"><a href={WHATSAPP_LINK} target="_blank" rel="noreferrer">Order Now</a></Button></div></div>
         </div>
       </section>
       <section className="section-pad"><div className="page-shell grid items-center gap-12 lg:grid-cols-2"><img src={photos.platter} alt="Assorted Turkish pastries from Asali" className="aspect-[4/5] w-full rounded-lg object-cover shadow-xl" /><div><SectionTitle eyebrow="Made in Riffa" title="A local table with Turkish soul." copy="Discover Asali Pastries, where fresh savoury pastries and satisfying favourites are made to bring people together." /><Button asChild className="mt-8" variant="outline"><a href="/about">Our story <ArrowRight /></a></Button></div></div></section>

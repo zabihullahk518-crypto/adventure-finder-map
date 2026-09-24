@@ -13,6 +13,7 @@ const links = [
 export const PHONE_LINK = "tel:+97333447008";
 export const WHATSAPP_LINK = "https://wa.me/97333447008";
 export const MAP_LINK = "https://maps.google.com/?cid=6606123791950802938";
+export const TALABAT_LINK = "https://www.talabat.com/bahrain/restaurant/769121/alasali-turkish-pastrie-and-shawarma?aid=1086";
 
 export function Brand({ light = false }: { light?: boolean }) {
   return <Link to="/" className={`flex flex-col leading-none ${light ? "text-primary-foreground" : "text-primary"}`}>
